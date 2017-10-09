@@ -11,7 +11,7 @@ Currently functionality:
 (funx-min.lua and funx.lua are collections of useful functions)
 
 Example:
-
+~~~~
 -- Entire file system of the app
 local filesystem = buildFilesystem( "" )
 
@@ -37,3 +37,4 @@ if (f) then
 else
   print ("File not found", fileToFind)
 end
+~~~~
