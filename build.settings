@@ -1,0 +1,168 @@
+settings =
+{
+	excludeFiles =
+	{
+		-- Exclude all files at paths which end with "secret.txt"
+		all = { "rgmeter/*", "Ultimote.lua", "*.sublime-workspace", "GliderProperties.proj", "mobdebug.lua",
+		},
+		-- Exclude all Android icon files and .ogg files in the "music" directory
+		ios = { "Icon-*dpi.png", },
+		android = { "iTunesArtwork*", },
+		
+		-- Exclude unnecessary assets from macOS desktop apps
+		macos = { "Default*.png", "Icon*.png", "Icon*.ico", "Icon*.icns" },
+		-- Exclude unnecessary assets from Win32 desktop apps
+		win32 = { "Default*.png", "Icon*.png", "Icon*.ico", "Icon*.icns" },
+ 
+	},
+	
+	orientation =
+	{
+		default = "landscapeLeft",
+	},
+
+	plugins =
+	{
+	},
+
+	iphone = {
+		plist = {
+		
+			UILaunchStoryboardName = "LaunchScreen",  -- Required!
+			
+			-- Allow access to HTTP (not only HTTPS)
+			ITSAppUsesNonExemptEncryption = false,
+
+			NSAppTransportSecurity =
+			{
+				NSAllowsArbitraryLoads = true,
+			},
+			
+			UIAppFonts = 
+						{
+						},
+--			UIInterfaceOrientation = "UIInterfaceOrientationLandscapeRight",
+--			UISupportedInterfaceOrientations =
+--			{
+--				"UIInterfaceOrientationLandscapeLeft",
+--				"UIInterfaceOrientationLandscapeRight"
+--			},
+			
+			CoronaWindowMovesWhenKeyboardAppears = true,
+			
+			CoronaUseIOS7IPadPhotoPickerLandscapeOnlyWorkaround = true,
+			CoronaUseIOS6IPadPhotoPickerLandscapeOnlyWorkaround = true,
+			CoronaUseIOS7LandscapeOnlyWorkaround = true,
+			CoronaUseIOS6LandscapeOnlyWorkaround = true,
+
+			UIPrerenderedIcon=true,
+			UIStatusBarHidden=true,
+			UIApplicationExitsOnSuspend = false,
+			
+			MinimumOSVersion = "6.0",
+			
+			FacebookAppID = "",
+			CFBundleURLTypes =
+			{
+				{
+					CFBundleURLSchemes =
+					{
+						"",
+					}
+				}
+			},
+			CFBundleDisplayName="Testing",
+			CFBundleName = "Testing",
+			CFBundleIconFiles = {
+				"Icon-40.png",
+				"Icon-58.png",
+				"Icon-76.png",
+				"Icon-80.png",
+				"Icon-87.png",
+				"Icon-120.png",
+				"Icon-152.png",
+				"Icon-167.png",
+				"Icon-180.png",
+			},
+
+--[[
+								"Icon-72.png",
+								"Icon-72@2x.png",
+								"Icon-76.png",
+								"Icon-76@2x.png",
+								"Icon-120.png",
+								"Icon-iPad-Spotlight-iOS7@2x.png",
+								"Icon-Small-50.png",
+								"Icon-Small.png",
+								"Icon-Small@2x.png",
+								"Icon-Spotlight-iOS7.png",
+								"Icon-Spotlight-iOS7@2x.png",
+								"Icon.png",
+								"Icon@2x.png",
+			},
+--]]
+	},
+	
+	
+},
+
+
+
+	android = {
+	
+		supportsScreens =
+		{
+			largeScreens  = true,
+		},
+		
+		allowAppsReadOnlyAccessToFiles = true,
+		
+		-- This tells the Corona Simulator to create an expansion file
+		-- Large Apps (over 100MB) require expansion files
+		usesExpansionFile = false,
+		
+		-- Set to true if triggering out-of-memory errors
+		largeHeap = true,
+
+		usesPermissions =
+		{
+			"android.permission.INTERNET",
+			--"android.permission.WRITE_EXTERNAL_STORAGE",
+			--"android.permission.ACCESS_FINE_LOCATION",
+			--"android.permission.ACCESS_COARSE_LOCATION",
+			-- Large apps need expansions, which need licenses
+			"com.android.vending.CHECK_LICENSE",
+
+		},
+		
+		usesFeatures =
+		{
+			{ name="android.hardware.camera", required=false },
+			{ name="android.hardware.location", required=false },
+			{ name="android.hardware.location.gps", required=false },
+		},
+		
+	},
+
+
+	 window = {
+		  -- Settings for the desktop window; applies to both OS X and Win32 desktop apps
+		  defaultViewWidth = 1024,
+		  defaultViewHeight = 768,
+		  resizable = false,
+		  suspendWhenMinimized = true,
+	 },
+
+
+}
+
+
+--[[
+
+settings.iphone.plist["UIInterfaceOrientation~ipad"] = "UIInterfaceOrientationLandscapeLeft"
+settings.iphone.plist["UISupportedInterfaceOrientations~ipad"] = 
+{
+	"UIInterfaceOrientationLandscapeLeft",
+	"UIInterfaceOrientationLandscapeRight"
+}
+--]]
