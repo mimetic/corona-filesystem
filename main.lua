@@ -60,7 +60,7 @@ end
 
 -- Build a table containing files and folders inside of 'p'
 -- example: myfiles = buildFileSystem("some/sub/folder")
-local function buildFileTable(p)
+local function buildFilesystemSimple(p)
   local basedir = system.pathForFile('', system.ResourceDirectory)
   local fullpath = funx.joinAsPath( {basedir, p} )
   local files = {}
@@ -169,7 +169,7 @@ local dir = ""
 
 -- Version 1:
 -- Just names & folders
---filesystem = buildFileTable( dir )
+--filesystem = buildFilesystemSimple( dir )
 
 -- Version 2:
 -- Full file system with attributes
